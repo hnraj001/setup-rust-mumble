@@ -43,12 +43,6 @@ error() {
     echo -e "${RED}✖ $1${RESET}"
 }
 
-# Update system packages
-step "Updating system packages"
-sudo apt update &>/dev/null && sudo apt upgrade -y &>/dev/null &
-spinner
-success "System updated successfully"
-
 # Install dependencies
 step "Installing dependencies"
 sudo apt install -y llvm clang make pkg-config libssl-dev git curl ufw &>/dev/null &
