@@ -143,15 +143,6 @@ sudo sed -i 's/^#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd
 sudo sed -i 's/^#DefaultLimitNOFILE=.*/DefaultLimitNOFILE=1048576/' /etc/systemd/user.conf &>/dev/null
 success "System-wide limits configured"
 
-# Configure firewall
-step "Configuring firewall rules"
-sudo ufw allow 55500/tcp &>/dev/null
-sudo ufw allow 55500/udp &>/dev/null
-sudo ufw allow 8080/tcp &>/dev/null
-sudo systemctl enable ufw &>/dev/null
-sudo ufw enable &>/dev/null &
-spinner
-success "Firewall rules applied"
 
 echo -e "\n${GREEN}${BOLD}All tasks completed successfully! Rust-Mumble is now running.${RESET}"
 
